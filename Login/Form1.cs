@@ -32,20 +32,26 @@ namespace Login
         {
             if (textBox1.Text == "admin" && textBox2.Text == "admin")
             {
-            this.Hide();
-            Scheduler s = new Scheduler();
-            s.Show();
+                this.Close();
+                System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(Open_Scheduler));
+                thread.Start();
             }
             else if(textBox1.Text == "user" && textBox2.Text == "user")
             {
-                this.Hide();
-                Attendee a = new Attendee();
-                a.Show();
+                this.Close();
+                System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(Open_Attendee));
+                thread.Start();
             }
             else
             {
                 MessageBox.Show("Please enter correct username and password", "alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void Open_Scheduler() {
+            Application.Run(new Scheduler());
+        }
+        public void Open_Attendee() {
+            Application.Run(new Attendee());
         }
 
         private void button1_Click(object sender, EventArgs e)

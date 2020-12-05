@@ -16,5 +16,16 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void Logout_Click(object sender, EventArgs e) {
+            Application.Exit();
+            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLoginForm));
+            thread.Start();
+        }
+
+        public void OpenLoginForm() {
+            Application.Run(new Form1()); 
+        }
+
     }
 }
