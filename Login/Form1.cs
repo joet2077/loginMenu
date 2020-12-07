@@ -61,7 +61,7 @@ namespace Login
                 }
 
             } else {
-                error_label.Text = "Sorry that is not a valid username / password";
+                error_label.Text = "Sorry that is not a valid username / password!";
             }
         }
         public void Open_Scheduler() {
