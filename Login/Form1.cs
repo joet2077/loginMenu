@@ -19,6 +19,7 @@ namespace Login
 {
     public partial class Form1 : Form
     {
+        private string username;
         public Form1()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace Login
 
         private async void button2_ClickAsync(object sender, EventArgs e)
         {
-
+            username = textBox1.Text;
             var user = new Dictionary<string, string>() { };
             user.Add("username", textBox1.Text);
             user.Add("password", textBox2.Text);
@@ -68,7 +69,7 @@ namespace Login
             Application.Run(new Scheduler());
         }
         public void Open_Attendee() {
-            Application.Run(new Attendee());
+            Application.Run(new Attendee(username));
         }
 
         private void button1_Click(object sender, EventArgs e)
